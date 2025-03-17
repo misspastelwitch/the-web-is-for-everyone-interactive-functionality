@@ -5,6 +5,9 @@ import express from 'express'
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
+const vacaturesResponse = await fetch('https://fdnd-agency.directus.app/items/dda_agencies_vacancies')  
+const vacaturesResponseJSON = await vacaturesResponse.json()
+console.log('Welcome back, Stella! ^^')
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
@@ -24,17 +27,40 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 
-console.log('Let op: Er zijn nog geen routes. Voeg hier dus eerst jouw GET en POST routes toe.')
 
-/*
+// Maak een GET route voor de index (meestal doe je dit in de root, als /)
+app.get('/', async function (request, response) {
+  // Render index.liquid uit de Views map
+  // Geef hier eventueel data aan mee
+  response.render('vacatures.liquid', {vacatures: vacaturesResponseJSON.data})
+})
+
+// Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
+// Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
+app.post('/', async function (request, response) {
+ // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
+ // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
+ response.redirect(303, '/')
+})
+
+// Stel het poortnummer in waar Express op moet gaan luisteren
+// Lokaal is dit poort 8000, als dit ergens gehost wordt, is het waarschijnlijk poort 80
+app.set('port', process.env.PORT || 8000)
+
+// Start Express op, haal daarbij het zojuist ingestelde poortnummer op
+app.listen(app.get('port'), function () {
+ // Toon een bericht in de console en geef het poortnummer door
+ console.log(`Application started on http://localhost:${app.get('port')}`)
+})
+
 // Zie https://expressjs.com/en/5x/api.html#app.get.method over app.get()
 app.get(…, async function (request, response) {
   
   // Zie https://expressjs.com/en/5x/api.html#res.render over response.render()
   response.render(…)
 })
-*/
 
+console.log('Routes clear!')
 /*
 // Zie https://expressjs.com/en/5x/api.html#app.post.method over app.post()
 app.post(…, async function (request, response) {
