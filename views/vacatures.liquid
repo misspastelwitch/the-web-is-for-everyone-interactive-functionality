@@ -1,0 +1,82 @@
+{% render 'partials/head.liquid', title: 'Vacatures' %}
+
+<header>
+    <nav class="topnav">
+      <img src="/assets/DDAlogo.png" alt="logo" class="logo">
+
+       <div class="home">
+        <a href="https://dutchdigitalagencies.com/">Home</a>
+
+
+    </nav>
+  </header>
+
+  <header class="titles">
+    <h1>ONZE VACATURES</h1>
+    <p>Verslim je carrière bij de beste digitale bureaus van Nederland.<br>
+     Pak je rol als developer of designer, researcher, als scrum master of marketeer,
+     als strateeg.<br> Start of groei door – en laat zien wat je kan.</p>
+  </header>
+
+
+<form>
+    <input type="text" class="zoek" id="search" name="search" placeholder="Zoek een vacature..."
+    >
+    <div "buttons">
+    <select class="button">
+        <option value="all">Expertise</option>
+        <option value="frontend">Frontend Developer</option>
+        <option value="backend">Backend Developer</option>
+        <option value="fullstack">Fullstack Developer</option>
+        <option value="designer">Designer</option>
+        <option value="marketeer">Marketeer</option>
+    </select>
+    <select class="button">
+        <option value="all">Uren</option>
+        <option value="vol">Voltijd 38-40 uur</option>
+        <option value="deel">Deeltijd 16-24 uur</option>
+        <option value="stage">Stage</option>
+
+    </select>
+    <select class="button">
+        <option value="all">Locatie</option>
+        <option value="ams">Amsterdam</option>
+        <option value="dh">Den Haag</option>
+        <option value="ut">Utrecht</option>
+        <option value="bre">Breda</option>
+        <option value="hfd">Hooftdorp</option>
+    </select>
+    <select class="button">
+        <option value="all">Taal</option>
+        <option value="En">Engels</option>
+        <option value="Nl">Nederlands</option>
+    </select>
+    </div>
+</form>
+
+    <ul>
+        <li>
+         <h3>{{ "abcd dcba abcd" | remove: "c" }}</h3>
+         <h3>{{ "abcd dcba abcd" | remove_first: "c" }}</h3>
+         <h3>{{ "abcd dcba abcd" | remove_last: "c" }}</h3>
+         <h3>{{ "vacatures"| capitalize }}</h3>
+         {% assign my_array = "frontend vacatures, backend vacatures, marketing vacatures, project management vacatures" | split: ", " %}
+         {{ my_array | sort | join: ", " }}
+        </li>
+    </ul>
+
+<main class="gridview">
+    <ul>
+        {% for vacature in vacatures %}
+        <li>
+         <h3>{{vacature.title}}</h3>
+         <a href="{{vacature.photo}}"> </a>
+            <h5><span>{{vacature.hours}}</span> Uur - <span>{{vacature.locatie}}</span></h5>
+            <a href="{{vacature.url}}">Bekijken →</a>
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+
+</script>
+{% render 'partials/footer.liquid' %}

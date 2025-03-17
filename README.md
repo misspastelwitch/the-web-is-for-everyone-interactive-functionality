@@ -1,9 +1,9 @@
 # Interactive Functionality
+# Titel
 
-Ontwerp en maak voor een opdrachtgever een interactieve toepassing die voor iedereen toegankelijk is
+Dutch Design Agency - Vacatures
 
-De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/the-web-is-for-everyone-interactive-functionality/blob/main/docs/INSTRUCTIONS.md)
-
+De vacatures pagina van DDA, waar alle vacatures van verschillende design bureau's te zien zijn.
 
 ## Inhoudsopgave
 
@@ -14,23 +14,24 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/the-web
   * [Bronnen](#bronnen)
   * [Licentie](#licentie)
 
+
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual of video toe 📸 -->
-<!-- Voeg een link toe naar GitHub Pages 🌐-->
+<!-- In de Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
+<!-- Voeg een mooie poster visual toe 📸 -->
+<!-- Voeg een link toe naar Github Pages 🌐-->
 
 ## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+<!--Bij Gebruik staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framework of library gebruikt? -->
+<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
 
 ## Installatie
-<!-- Bij Installatie staat hoe een andere developer aan jouw repo kan werken -->
-
+<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
 
 ## Bronnen
 
 ## Licentie
+
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
