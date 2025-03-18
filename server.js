@@ -35,6 +35,19 @@ app.get('/', async function (request, response) {
   response.render('vacatures.liquid', {vacatures: vacaturesResponseJSON.data})
 })
 
+app.get('/solicitatie', async function (request, response) {
+  response.render('solicitatie.liquid')
+})
+
+
+app.post('/soliciatie', async function (request, response) {
+ console.log(request.body.name);
+ response.redirect(303, '/')
+})
+
+app.use((request, response, next) => {
+ response.render('gelukt.liquid');
+})
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
@@ -54,11 +67,11 @@ app.listen(app.get('port'), function () {
 })
 
 // Zie https://expressjs.com/en/5x/api.html#app.get.method over app.get()
-app.get(…, async function (request, response) {
+//app.get(), async function (request, response) {
   
   // Zie https://expressjs.com/en/5x/api.html#res.render over response.render()
-  response.render(…)
-})
+ // response.render()
+//}
 
 console.log('Routes clear!')
 /*
@@ -95,6 +108,4 @@ app.set('port', process.env.PORT || 8000)
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
-  // Toon een bericht in de console
-  console.log(`Daarna kun je via http://localhost:${app.get('port')}/ jouw interactieve website bekijken.\n\nThe Web is for Everyone. Maak mooie dingen 🙂`)
 })

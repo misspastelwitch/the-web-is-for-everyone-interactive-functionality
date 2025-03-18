@@ -4,7 +4,7 @@
     <nav class="topnav">
       <img src="/assets/DDAlogo.png" alt="logo" class="logo">
 
-       <div class="home">
+       <div class="showmore">
         <a href="https://dutchdigitalagencies.com/">Home</a>
 
 
@@ -54,26 +54,43 @@
     </div>
 </form>
 
-    <ul>
-        <li>
-         <h3>{{ "abcd dcba abcd" | remove: "c" }}</h3>
-         <h3>{{ "abcd dcba abcd" | remove_first: "c" }}</h3>
-         <h3>{{ "abcd dcba abcd" | remove_last: "c" }}</h3>
-         <h3>{{ "vacatures"| capitalize }}</h3>
-         {% assign my_array = "frontend vacatures, backend vacatures, marketing vacatures, project management vacatures" | split: ", " %}
-         {{ my_array | sort | join: ", " }}
-        </li>
-    </ul>
-
 <main class="gridview">
     <ul>
         {% for vacature in vacatures %}
         <li>
-         <h3>{{vacature.title}}</h3>
+         <h3 class="title">{{vacature.title}}</h3>
          <a href="{{vacature.photo}}"> </a>
-            <h5><span>{{vacature.hours}}</span> Uur - <span>{{vacature.locatie}}</span></h5>
-            <a href="{{vacature.url}}">Bekijken →</a>
-        </li>
+            <h4 class="title"><span>{{vacature.hours}} </span> Uur - <span> {{vacature.locatie}}</span> <button class="showmore" id="soliciteer">Soliciteer</button></h4>
+            <div class="container">
+        <section class="solicitatieform">
+        <p> Vacature description - Als Strateeg ben je de schakel tussen klantdoelstellingen, marktkansen en creatieve oplossingen. 
+        Je duikt in data en trends, zet strategische lijnen uit en helpt klanten hun doelen te bereiken. Je werkt samen met een team 
+        van digital consultants, projectmanagers, customer success managers, marketeers, creatieven en developers om strategieën niet 
+        alleen te bedenken, maar ook echt tot leven te brengen. <br>
+        </br>
+Je hebt al een aantal jaar ervaring in strategie, maar nog belangrijker: je voelt feilloos aan wat werkt en hoe je strategische kansen kunt benutten.
+ Je bent sterk in stakeholdermanagement en weet verschillende belangen te overbruggen om tot de beste oplossingen te komen. Jij bent de 
+ verbindende factor tussen klantdoelstellingen, marktkansen en creativiteit.
+        </p>
+        <a class="bedrijf" href="{{vacature.url}}">Bedrijf Bekijken</a>
+        <h5>Klaar om te soliciteren?</h5>
+  <form id="solicitatieform">
+    <label for="name">Naam</label>
+    <input type="text" id="name" name="name" placeholder="John Doe">
+
+    <label for="email">E-mail</label>
+    <input type="text" id="email" name="email address" placeholder="johndoe@gmail.com">
+
+    <input type="submit" id="verstuur" value="verstuur">
+
+  </form>
+  </section>
+</li>
+
+</div>
+
+        <form>
+        </form>
         {% endfor %}
     </ul>
 </main>
