@@ -48,7 +48,20 @@ app.post('/soliciatie', async function (request, response) {
 app.use((request, response, next) => {
  response.render('gelukt.liquid');
 })
+
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
+
+
+ app.post ('/soliciteer', async function (request, response) {
+ const solictiteer = [];
+
+ await fetch('') 
+ method; 'POST'
+ }
+ )
+
+
+
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
