@@ -57,12 +57,15 @@
 
 <main class="gridview">
     <ul>
+        {% if vacatures %}
+
         {% for vacature in vacatures %}
         <li>
          <h3 class="title">{{vacature.title}}</h3>
          <a href="{{vacature.photo}}"> </a>
             <h4 class="title"><span>{{vacature.hours}} </span> Uur - <span> {{vacature.locatie}}</span> </h4>
             <button id="showingmore" class="showmore">Meer zien</button>
+
             <section class="speakerinfo">
             <div class="container">
         <p> Vacature description - Als Strateeg ben je de schakel tussen klantdoelstellingen, marktkansen en creatieve oplossingen. 
@@ -74,8 +77,12 @@ Je hebt al een aantal jaar ervaring in strategie, maar nog belangrijker: je voel
  Je bent sterk in stakeholdermanagement en weet verschillende belangen te overbruggen om tot de beste oplossingen te komen. Jij bent de 
  verbindende factor tussen klantdoelstellingen, marktkansen en creativiteit.
         </p>
-        {% render 'partials/soliciteer.liquid' %}
+        {% if appliedFor == vacature.id %}
+        {% render './partials/gelukt.liquid' %}
+            {% else %}
+        {% render 'partials/soliciteer.liquid', vacature: vacature %}
 
+        {% endif %}
 
 
     {% comment %}
@@ -98,7 +105,10 @@ have you entered your email address correctly?
         </form>
         {% endfor %}
     </ul>
-</main>
+    {% else %}
+    <p>Er zijn geen vacatures beschikbaar.</p>
+{% endif %}
+</main> 
 
 </script>
 {% render 'partials/footer.liquid' %}

@@ -27,15 +27,26 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 
-
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
   // Render index.liquid uit de Views map
   // Geef hier eventueel data aan mee
-  response.render('vacatures.liquid', {vacatures: vacaturesResponseJSON.data})
+
+  console.log('we zijn op home');
+
+  let appliedFor = false;
+  if (request.query.appliedFor) {
+    appliedFor = Number(request.query.appliedFor)
+  }
+  
+  response.render('vacatures.liquid', {
+    vacatures: vacaturesResponseJSON.data,
+    appliedFor: appliedFor
+   }
+  )
 })
 
-app.get('/solicitatie', async function (request, response) {
+app.get('/solici', async function (request, response) {
   response.render('solicitatie.liquid')
 })
 
@@ -45,20 +56,34 @@ app.post('/soliciatie', async function (request, response) {
  response.redirect(303, '/')
 })
 
-app.use((request, response, next) => {
- response.render('gelukt.liquid');
-})
+// app.get('/gelukt', async function (request, response) {
+//   response.render('gelukt.liquid')
+// })
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 
 
- app.post ('/soliciteer', async function (request, response) {
- const solictiteer = [];
+ app.post ('/', async function (request, response) {
 
- await fetch('') 
- method; 'POST'
- }
- )
+ const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_applications', {
+  method:'POST',
+  headers: {
+    'Content-Type':'application/json;charset=utf-8',
+
+  },
+  body: JSON.stringify({
+    vacancy: request.body.vacature,
+    name: request.body.name,
+    email: request.body.email,
+  })
+ })
+ console.log(apiResponse);
+
+ 
+ response.redirect(303, '/?appliedFor=' + request.body.vacature);
+});
+
 
 
 
@@ -114,11 +139,3 @@ app.post(…, async function (request, response) {
 })
 */
 
-
-// Stel het poortnummer in waar Express op moet gaan luisteren
-// Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
-app.set('port', process.env.PORT || 8000)
-
-// Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
-app.listen(app.get('port'), function () {
-})
