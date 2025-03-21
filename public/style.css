@@ -243,29 +243,48 @@ margin-left: 2%;
     line-height: 1.5rem;
 }
 
-
-.showmore {
+#showingmore {
+    align-items: center;
+    background-color: transparent;
     border: 1px solid var(--blue);
     color: var(--blue);
     cursor: pointer;
     display: inline-flex;
     font-family: MartianMono, monospace;
     font-size: 1.5rem;
+    line-height: 1.5rem;
     padding: 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 10%;
     text-decoration: none;
     text-transform: uppercase;
-    ~ .solicitatieform {
-        display: none;
-    }
+    display: block;
 }
 
-.showingmore {
-    display: block;
-    /* visibility: hidden; */
-    ~ .solicitatieform {
-        display: block;
-    }
+.showmore {
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: MartianMono, monospace;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 7%;
+    background-color: transparent;   
+    ~ section.speakerinfo {
+        display: none;
 }
+}
+
 
 .showless {
     align-items: center;
@@ -279,23 +298,40 @@ margin-left: 2%;
     font-size: 2rem;
     line-height: 2rem;
     padding: 0;
+    margin-left: 10%;
     text-decoration: none;
     text-transform: uppercase;
+    ~ section.speakerinfo {
+        display: block;
+    }
 }
 
 .showingless {
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: MartianMono, monospace;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding: 0;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 10%;
+    text-decoration: none;
+    text-transform: uppercase;
     border-radius: .4em;
     cursor: pointer;
     display: block;
+    ~ section.speakerinfo {
+        display: none;
+}
 }
 
-.solicitatieform {
+.speakerinfo {
 max-inline-size: 80ch;
-}
-
-#soliciteer {
- margin-left: 7%;
- background-color: transparent;   
 }
 
 #name {
@@ -583,3 +619,6 @@ line-height: 1.5rem;
         font-size: 16px;
     }
 }
+
+
+

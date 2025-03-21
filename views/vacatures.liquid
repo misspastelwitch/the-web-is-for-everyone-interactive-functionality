@@ -4,8 +4,9 @@
     <nav class="topnav">
       <img src="/assets/DDAlogo.png" alt="logo" class="logo">
 
-       <div class="showmore">
+       <div class="home">
         <a href="https://dutchdigitalagencies.com/">Home</a>
+        </div>
 
 
     </nav>
@@ -60,9 +61,10 @@
         <li>
          <h3 class="title">{{vacature.title}}</h3>
          <a href="{{vacature.photo}}"> </a>
-            <h4 class="title"><span>{{vacature.hours}} </span> Uur - <span> {{vacature.locatie}}</span> <button class="showmore" id="soliciteer">Soliciteer</button></h4>
+            <h4 class="title"><span>{{vacature.hours}} </span> Uur - <span> {{vacature.locatie}}</span> </h4>
+            <button id="showingmore" class="showmore">Meer zien</button>
+            <section class="speakerinfo">
             <div class="container">
-        <section class="solicitatieform">
         <p> Vacature description - Als Strateeg ben je de schakel tussen klantdoelstellingen, marktkansen en creatieve oplossingen. 
         Je duikt in data en trends, zet strategische lijnen uit en helpt klanten hun doelen te bereiken. Je werkt samen met een team 
         van digital consultants, projectmanagers, customer success managers, marketeers, creatieven en developers om strategieën niet 
@@ -73,17 +75,30 @@ Je hebt al een aantal jaar ervaring in strategie, maar nog belangrijker: je voel
  verbindende factor tussen klantdoelstellingen, marktkansen en creativiteit.
         </p>
         <a class="bedrijf" href="{{vacature.url}}">Bedrijf Bekijken</a>
+
+
         <h5>Klaar om te soliciteren?</h5>
-  <form id="solicitatieform">
-    <label for="name">Naam</label>
-    <input type="text" id="name" name="name" placeholder="John Doe">
+        <form id="solicitatieform">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" placeholder="John Doe">
 
-    <label for="email">E-mail</label>
-    <input type="text" id="email" name="email address" placeholder="johndoe@gmail.com">
+        <label for="email">E-mail</label>
+        <input type="text" id="email" name="email address" placeholder="johndoe@gmail.com">
+        </form>
+        <input type="submit" id="verstuur" value="verstuur">
 
-    <input type="submit" id="verstuur" value="verstuur">
 
-  </form>
+    {% comment %}
+<!-- If verstuur is successful, show gelukt.liquid
+{% if verstuur  == "true" %}
+show gelukt
+{% elsif  == "name error" %}
+have you entered your name correctly?
+{% else == "email error" %}
+have you entered your email address correctly?
+{% endif %}
+{% endcomment %}
+
   </section>
 </li>
 
