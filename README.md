@@ -1,4 +1,3 @@
-# Interactive Functionality
 # Dutch Design Agency - Vacatures
 
 ## Inhoudsopgave
@@ -39,7 +38,74 @@ Als de user zijn informatie in de formulier schrijft, krijg hen een ideal state 
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
+In CSS gebruik ik een grid layout en max-inline-size met characters zodat de text die geladen word niet de hele width van de pagina over loopt.
+ ``` 
+.speakerinfo {
+max-inline-size: 80ch;
+}
+ ``` 
+Ik heb met javascript een dropdown menu gemaakt met query selectors en event listeners.
 
+  ```
+let showMoreButton = document.querySelector('.showmore');
+ console.log(showMoreButton)
+
+showMoreButton.addEventListener('click', function() {
+    showMoreButton.classList.toggle('showmore');
+    // Change the text on the button to 'Show more' when it's
+    //'Show less', and to 'Show less' when it's 'Show more'
+    if (showMoreButton.textContent == 'Show less') {
+        showMoreButton.textContent = 'Show more';
+    } else {
+        showMoreButton.textContent = 'Show less';
+    }
+})
+ ```
+
+Met Liquid kon ik een method="POST" gebruiken om alle data vanuit de formulier naar de database sturen.
+
+ ```
+<form id="solicitatieform" method="POST" action="/">
+<label for="name">Naam</label>
+<input type="text" id="input" name="name" placeholder="John Doe">
+
+<label for="email">E-mail</label>
+<input type="text" id="input" name="email" placeholder="johndoe@gmail.com">
+<input type="hidden" name="vacature" value="{{ vacature.id }}">
+<input type="submit" id="verstuur" value="verstuur">
+</form>
+ ```
+Dit koppelt aan de POST die in de Server.js staat.
+ ```
+app.post ('/', async function (request, response) {
+
+ const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_applications', {
+  method:'POST',
+  headers: {
+    'Content-Type':'application/json;charset=utf-8',
+
+  },
+  body: JSON.stringify({
+    vacancy: request.body.vacature,
+    name: request.body.name,
+    email: request.body.email,
+  })
+ })
+ console.log(apiResponse);
+
+ 
+ response.redirect(303, '/?appliedFor=' + request.body.vacature);
+});
+ ```
+Met Liquid kon ik ook de formulier partial vervangen met de gelukt bericht als de formulier verstuurt is naar de database.
+ ```
+        {% if appliedFor == vacature.id %}
+        {% render './partials/gelukt.liquid' %}
+            {% else %}
+        {% render 'partials/soliciteer.liquid', vacature: vacature %}
+
+        {% endif %}
+ ```
 
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
