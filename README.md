@@ -1,7 +1,5 @@
 # Interactive Functionality
-# Titel
-
-Dutch Design Agency - Vacatures
+# Dutch Design Agency - Vacatures
 
 ## Inhoudsopgave
 
@@ -24,6 +22,8 @@ Deze project is een vacature pagina voor DDA, waar de user verschillende vacatur
 Het styling is gebaseerd op de andere DDA paginas en huisstijl, met een paar veranderingen om te zorgen dat het pagina makkelijk te navigeren is.
 ![Screenshot 2025-04-02 103337](https://github.com/user-attachments/assets/7601a5f3-8bbb-46e1-bf6c-0358c72350c2)
 ![Screenshot 2025-04-02 103356](https://github.com/user-attachments/assets/a95d0401-cfec-4bbf-b0b9-b503fa1f4f13)
+![image](https://github.com/user-attachments/assets/0002e137-88d3-4f4c-a039-736521f39c04)
+
 
 </br> 
 Ik heb de buttons veranderd van zwart naar blauw om ze meet aantrekkelijk te maken. Zonder dit vind ik dat de pagina te monotoon is, en dat het niet visueel stimulerend genoeg is dat mensen soliciteren willen.
