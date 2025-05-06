@@ -15,3 +15,23 @@ showMoreButton.addEventListener('click', function() {
     }
 })
  console.log("hello")
+
+ document.startViewTransition(updateFunction)
+
+ if (document.startViewTransition) {
+    document.startViewTransition(function() {
+        // Verander hier iets in de DOM, 
+    })
+} else {
+    // Verander hier iets in de DOM
+}
+// Loading state vervangen door een Success state
+form.outerHTML = newState.outerHTML
+// Overschrijf ons formulier met de nieuwe HTML, met of zonder een View Transition, afhankelijk van de browser
+if (document.startViewTransition) {
+    document.startViewTransition(function() {
+        form.outerHTML = newState.outerHTML
+    })
+} else {
+    form.outerHTML = newState.outerHTML
+}
