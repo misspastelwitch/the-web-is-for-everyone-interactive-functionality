@@ -1,0 +1,8 @@
+<div id="solicitatieform" class="loader"></div>
+
+{% if  == vacature.id %}
+    {% render './partials/gelukt.liquid' %}
+        {% else %}
+    {% render 'partials/error.liquid', vacature: vacature %}
+
+    {% endif %}

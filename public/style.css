@@ -393,6 +393,36 @@ line-height: 1.5rem;
     background-color: transparent;     
     }
 
+    .loader {
+        border: 6px solid #d6d8df;
+        border-top: 6px solid blue;
+        border-radius: 50%;
+        margin-left: 14%;
+        width: 45px;
+        height: 45px;
+        animation: spin 1.5s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% {
+            transform: rotate( 0deg ) scale( 1 );
+          }
+          10% {
+            transform: rotate( -90deg ) scale( 1.1 );
+          }
+          50% {
+            transform: rotate( -180deg ) scale( 1.2 );
+          }
+          80% {
+            transform: rotate( -270deg ) scale( 1.1 );
+          }
+          100% {
+            transform: rotate( -360deg ) scale( 1 );
+          }
+      }
+
+
+
 .bedrijf {
     align-items: center;
     background-color: transparent;

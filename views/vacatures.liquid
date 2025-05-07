@@ -69,7 +69,7 @@
 
             <section class="speakerinfo">
             <div class="container">
-        <p> Vacature description - Als Strateeg ben je de schakel tussen klantdoelstellingen, marktkansen en creatieve oplossingen. 
+        <p> Als Strateeg ben je de schakel tussen klantdoelstellingen, marktkansen en creatieve oplossingen. 
         Je duikt in data en trends, zet strategische lijnen uit en helpt klanten hun doelen te bereiken. Je werkt samen met een team 
         van digital consultants, projectmanagers, customer success managers, marketeers, creatieven en developers om strategieën niet 
         alleen te bedenken, maar ook echt tot leven te brengen. <br>
@@ -79,7 +79,7 @@ Je hebt al een aantal jaar ervaring in strategie, maar nog belangrijker: je voel
  verbindende factor tussen klantdoelstellingen, marktkansen en creativiteit.
         </p>
         {% if appliedFor == vacature.id %}
-        {% render './partials/gelukt.liquid' %}
+        {% render './partials/loading.liquid' %}
             {% else %}
         {% render 'partials/soliciteer.liquid', vacature: vacature %}
 
