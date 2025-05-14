@@ -1,6 +1,10 @@
 <div id="solicitatieform" class="loader"></div>
 
-{% if  == vacature.id %}
+{% for input in soliciteer %}
+    <p>{{ input }}</p>
+{% endfor %}
+
+{% if appliedFor == vacature.id %}
     {% render './partials/gelukt.liquid' %}
         {% else %}
     {% render 'partials/error.liquid', vacature: vacature %}
